@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>EnergyApp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>EnergyApp</h1>
+    <div class="content">
+        <form id="deviceForm">
+            <input type="text" id="deviceName" placeholder="name" required>
+            <input type="number" id="energyConsumption" placeholder="energyConsumption" required>
+            <button type="submit">Add device</button>
+        </form>
+        <div id="graph">
+            <p>Total consumption:<em id="totalConsumption"> 0 וואט </em></p>
+            <div class="canvas">
+                <canvas id="energyChart"></canvas>
+            </div>
+        </div>
+        <div id="devices">
+            <h2>Devices:</h2>
+            <ul id="deviceList"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
