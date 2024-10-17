@@ -18,14 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 const li = document.createElement('li');
                 const cost = calculateCost(device).toFixed(2)
                 li.textContent = `${device.name}: ${device.consumption} KW|${device.usageTime} hours|${cost}₪`;
-                li.dataset.index = index; // שמירת אינדקס כנתון מותאם אישית באלמנט ה-li
+                li.dataset.index = index;
                 li.addEventListener('click', function() {
-                    removeDevice(index); // כשנלחץ, נקרא לפונקציה למחיקת המכשיר
+                    removeDevice(index);
                 });
                 deviceList.appendChild(li);
             });
         }
-    } // סגירת הפונקציה renderDevices במקום הנכון
+    } 
 
     function removeDevice(index) {
         devices.splice(index, 1);
@@ -41,25 +41,24 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("totalConsumption").textContent = ` ${total.toFixed(2)}KW`;
     }
 
-    let chart; // משתנה גלובלי לאחסון הגרף
+    let chart;
 
     function renderChart() {
         const ctx = document.getElementById('energyChart').getContext('2d');
 
-        // אם כבר יש גרף, נעדכן אותו במקום ליצור חדש
         if (chart) {
             chart.data.datasets[0].data = devices.map(device => device.consumption);
             chart.data.labels = devices.map(device => device.name);
-            chart.update(); // עדכון הגרף
+            chart.update(); 
         } else {
             chart = new Chart(ctx, {
-                type: 'pie', // סוג הגרף (עוגה במקרה זה)
+                type: 'pie',
                 data: {
-                    labels: devices.map(device => device.name), // שמות המכשירים
+                    labels: devices.map(device => device.name), 
                     datasets: [{
                         label: 'צריכת אנרגיה (וואט)',
-                        data: devices.map(device => device.consumption), // צריכת האנרגיה של כל מכשיר
-                        backgroundColor: ['#2c7e82', '#49abb0', '66ced3', '#0c2923', '#00ffcc', '#7ea39c'], // צבעים שונים לפריטים
+                        data: devices.map(device => device.consumption), 
+                        backgroundColor: ['#2c7e82', '#49abb0', '66ced3', '#0c2923', '#00ffcc', '#7ea39c'],
                     }]
                 },
                 options: {
@@ -106,10 +105,10 @@ document.addEventListener('DOMContentLoaded', function() {
         totalConsumption();
         renderChart();
         totalCost()
-        this.reset(); // לנקות את הטופס
+        this.reset(); 
     });
 
-    renderDevices(); // הצג את המכשירים הקיימים
+    renderDevices(); 
     totalConsumption();
     renderChart();
     totalCost()
