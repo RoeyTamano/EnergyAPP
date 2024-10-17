@@ -1,50 +1,62 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: rgb(165, 238, 214);
+    /* margin: 20px; */
+    background-color: rgb(4 32 53);
 }
-h1{
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 2rem;
     text-align: center;
-    color: rgb(30, 131, 97);
+    color: rgb(191 255 234);
     font-weight: 900;
     font-size: 3rem;
 }
-h2{
-    /* margin-top: 4rem; */
+
+h2 {
     text-align: center;
-    color: rgb(30, 131, 97);
+    color: rgb(9 43 31);
     font-weight: 700;
     font-size: 2rem;
     position: relative;
-    top: -70px;
+    top: -80px;
+    margin-top: 50px;
 }
 
-form input{
-    width:50%;
-    height:8%;
+form input {
+    width: 50%;
+    height: 8%;
     border: gray solid;
-    background-color:rgb(165, 238, 214);
-    transition:0.2s;
-    &:hover{
-        background-color:#66ced3;
-        border-radius:10px;
-    }
+    background-color: rgb(165, 238, 214);
+    transition: 0.2s;
 }
-form button{
-    width:25%;
-    height:10%;
-    border-radius:10px;
+
+form input:hover {
+    background-color: #66ced3;
+    border-radius: 10px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+form button {
+    width: 25%;
+    height: 10%;
+    border-radius: 10px;
     border: gray solid;
-    transition:0.2s;
+    transition: 0.2s;
     cursor: pointer;
     background-color: rgb(165, 238, 214);
-    &:hover{
-        background-color:#66ced3;
-        font-size: 1rem;
-    }
 }
+
+form button:hover {
+    background-color: #66ced3;
+    font-size: 1rem;
+}
+
 #deviceForm {
     display: flex;
     flex-direction: column;
@@ -52,82 +64,184 @@ form button{
     align-items: center;
     gap: 2rem;
     margin-bottom: 20px;
-    width: 30%;
-    height:30rem;
+    width: 40%;
+    height: 30rem;
     background: #2c7e82;
     border-radius: 10px;
+    border:#202e2e solid;
+    margin: 0 auto;
 }
+
 #deviceList {
     list-style-type: none;
-    padding: 0;
-    width: 100%;
-    height: 96%;
+    padding: 0px;
+    /* height: 100%; */
     text-align: center;
-    color:wheat;
+    color: wheat;
     background-color: #2c7e82;
-    border-radius:10px;
+    border-radius: 10px;
     border: #202e2e solid;
     position: relative;
-    top: -90px;
+    top: -110px;
+    margin: 0 auto;
+    max-height: 475px;
+    overflow-y: auto;
 }
-.content{
-    display:flex;
-    flex-direction:row-reverse;
-    justify-content:space-evenly;
+#deviceList::-webkit-scrollbar {
+    width: 8px;
 }
-ul li{
-    padding:0.5rem 2rem;
+
+#deviceList::-webkit-scrollbar-thumb {
+    background-color: #e6cea1;
+    border-radius: 10px;
+}
+
+#deviceList::-webkit-scrollbar-track {
+    background-color: #202e2e;
+}
+#devices{
+    margin-bottom: -90px;
+}
+.content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 40px;
+    background-color: #62b5b5;
+    margin: -8px;
+    padding: 50px;
+}
+
+ul li {
+    padding: 0.5rem 2rem;
     font-weight: 700;
-    border-bottom: #202e2e solid;
-    transition:0.2s;
+    border: #202e2e solid;
+    transition: 0.2s;
     cursor: pointer;
-    &:hover{
-        background-color:#49abb0;
-        font-size:large;
-    }
+    border-radius: 100px;
+    margin: 5px;
 }
-p{
-    text-align:center;
+
+ul li:hover {
+    background-color: #49abb0;
+}
+
+p {
+    text-align: center;
     font-size: xx-large;
-    color: rgb(30, 131, 97);
+    color: rgb(9 43 31);
     font-weight: 800;
+    margin: 10px;
 }
-p em{
-    color: #2c7e82;
+
+p em {
+    color: #a4f7f4;
 }
+
 #energyChart {
     width: 300px;
     height: 300px;
 }
-.canvas{
-    width: 20rem;
-    height: 20rem;
-    margin: 0 auto;
+
+.canvas {
+    width: 22rem;
+    height: 22rem;
+    margin: 0px auto;
 }
+
 table {
     width: 50%;
     border-collapse: collapse;
     margin-top: -10px;
     height: -21%;
     margin: auto;
+    /* margin-bottom: 30px; */
 }
+
 th, td {
     border: 1px solid #ccc;
     padding: 9px;
     text-align: center;
 }
+
 th {
     background-color: #5f8b9f;
     font-weight: 900;
-    font-size:1.3rem;
+    font-size: 1.3rem;
     color: #9ee0e3;
 }
-tr{
+
+tr {
     transition: 0.2s;
     font-weight: 700;
     color: #2c7e82;
-    &:hover{
-        background-color: #66ced3;
-        font-size:large;
-    }  
+    cursor: pointer;
+}
+
+tr:hover {
+    background-color: #66ced3;
+}
+.table_section{
+    background-color: #071a1a;
+    /* width: 100%; */
+    /* height: 1000px; */
+    margin: -8px;
+    padding-bottom: 30px;
+    position: relative;
+    /* top: -15px; */
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    #deviceForm {
+        width: 50%;
+    }
+    table {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+        top: -30px;
+    }
+    form input, form button {
+        width: 80%;
+        height: 7%;
+    }
+    #deviceForm {
+        width: 80%;
+        height: auto;
+    }
+    table {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    form input, form button {
+        width: 90%;
+        height: 6%;
+    }
+    #deviceForm {
+        width: 100%;
+    }
+    table {
+        width: 100%;
+    }
+    .canvas {
+        width: 15rem;
+        height: 15rem;
+    }
 }

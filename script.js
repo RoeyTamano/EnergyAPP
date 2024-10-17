@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function totalConsumption() {
         const total = devices.reduce((sum, device) => sum + device.consumption, 0);
-        document.getElementById("totalConsumption").textContent = ` ${total}KW`;
+        document.getElementById("totalConsumption").textContent = ` ${total.toFixed(2)}KW`;
     }
 
     let chart; // משתנה גלובלי לאחסון הגרף
@@ -81,12 +81,26 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("totalCost").textContent = `${total.toFixed(2)}₪`
     }
 
+    function selectDevice(deviceName, consumption) {
+        document.getElementById("deviceName").value = deviceName;
+        document.getElementById("energyConsumption").value = consumption;
+        document.getElementById("usageTime").value = 1;
+    }
+
+    document.querySelectorAll("Table tbody tr").forEach(function(row) {
+        row.addEventListener("click", function() {
+            const deviceName = row.dataset.device;
+            const consumption = row.dataset.consumption;
+            selectDevice(deviceName, consumption);
+        });
+    });
+
     document.getElementById('deviceForm').addEventListener('submit', function(event) {
         event.preventDefault();
         const deviceName = document.getElementById('deviceName').value;
         const energyConsumption = document.getElementById('energyConsumption').value;
         const usageTime = document.getElementById('usageTime').value;
-        devices.push({ name: deviceName, consumption: parseInt(energyConsumption), usageTime: parseInt(usageTime)});
+        devices.push({ name: deviceName, consumption: parseFloat(energyConsumption), usageTime: parseFloat(usageTime)});
         localStorage.setItem('devices', JSON.stringify(devices));
         renderDevices();
         totalConsumption();

@@ -7,13 +7,7 @@
 </head>
 <body>
     <h1>EnergyApp</h1>
-    <div class="content">
-        <form id="deviceForm">
-            <input type="text" id="deviceName" placeholder="Device name" required>
-            <input type="number" id="energyConsumption" placeholder="Energy Consumption (KW)" required>
-            <input type="number" id="usageTime" placeholder="Time used (hours)" required>
-            <button type="submit">Add device</button>
-        </form>
+    <section class="content">
         <div id="graph">
             <p>Total consumption:<em id="totalConsumption"> 0 KW </em></p>
             <p>Total cost:<em id="totalCost"> 0₪</em></p>
@@ -21,94 +15,98 @@
                 <canvas id="energyChart"></canvas>
             </div>
         </div>
+        <form id="deviceForm">
+            <input type="text" id="deviceName" placeholder="Device name" required>
+            <input type="number" id="energyConsumption" placeholder="Energy Consumption (KW)" step="0.0001" required>
+            <input type="number" id="usageTime" placeholder="Time used (hours)" step="0.0001" required>
+            <button type="submit">Add device</button>
+        </form>
         <div id="devices">
             <h2>Devices:</h2>
             <ul id="deviceList"></ul>
         </div>
-    </div>
-    <h1>Power Consumption of Devices</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Device</th>
-                <th>Power Consumption (kWh)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>LED Bulb</td>
-                <td>0.008 - 0.01</td>
-            </tr>
-            <tr>
-                <td>Television</td>
-                <td>0.1 - 0.4</td>
-            </tr>
-            <tr>
-                <td>Refrigerator</td>
-                <td>0.1 - 0.8</td>
-            </tr>
-            <tr>
-                <td>Washing Machine</td>
-                <td>0.5 - 2</td>
-            </tr>
-            <tr>
-                <td>Dryer</td>
-                <td>1.8 - 5</td>
-            </tr>
-            <tr>
-                <td>Electric Oven</td>
-                <td>1 - 5</td>
-            </tr>
-            <tr>
-                <td>Laptop</td>
-                <td>0.015 - 0.1</td>
-            </tr>
-            <tr>
-                <td>Desktop Computer</td>
-                <td>0.1 - 0.3</td>
-            </tr>
-            <tr>
-                <td>Coffee Machine</td>
-                <td>0.8 - 1.5</td>
-            </tr>
-            <tr>
-                <td>Air Conditioner</td>
-                <td>1 - 3</td>
-            </tr>
-            <tr>
-                <td>Freezer</td>
-                <td>0.2 - 0.6</td>
-            </tr>
-            <tr>
-                <td>Microwave</td>
-                <td>0.6 - 1.2</td>
-            </tr>
-            <tr>
-                <td>Dishwasher</td>
-                <td>1.2 - 1.5</td>
-            </tr>
-            <tr>
-                <td>Oven</td>
-                <td>1 - 3</td>
-            </tr>
-            <tr>
-                <td>Water Heater</td>
-                <td>1 - 3</td>
-            </tr>
-            <tr>
-                <td>Central Air Conditioner</td>
-                <td>2 - 4</td>
-            </tr>
-            <tr>
-                <td>Toaster</td>
-                <td>0.8 - 1.5</td>
-            </tr>
-            <tr>
-                <td>Electric Kettle</td>
-                <td>1 - 3</td>
-            </tr>
-        </tbody>
-    </table>
+    </section>
+    <section class="table_section">
+        <h1>Electricity Consumption by Common Devices</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Device</th>
+                    <th>Energy Consumption (kWh)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-device="LED Bulb" data-consumption="0.01">
+                    <td>LED Bulb</td>
+                    <td>0.01</td>
+                </tr>
+                <tr data-device="TV" data-consumption="0.2">
+                    <td>TV</td>
+                    <td>0.2</td>
+                </tr>
+                <tr data-device="Refrigerator" data-consumption="0.5">
+                    <td>Refrigerator</td>
+                    <td>0.5</td>
+                </tr>
+                <tr data-device="Washing Machine" data-consumption="1.5">
+                    <td>Washing Machine</td>
+                    <td>1.5</td>
+                </tr>
+                <tr data-device="Dryer" data-consumption="3">
+                    <td>Dryer</td>
+                    <td>3</td>
+                </tr>
+                <tr data-device="Oven" data-consumption="2.5">
+                    <td>Oven</td>
+                    <td>2.5</td>
+                </tr>
+                <tr data-device="Laptop" data-consumption="0.05">
+                    <td>Laptop</td>
+                    <td>0.05</td>
+                </tr>
+                <tr data-device="Desktop PC" data-consumption="0.2">
+                    <td>Desktop PC</td>
+                    <td>0.2</td>
+                </tr>
+                <tr data-device="Coffee Machine" data-consumption="1.2">
+                    <td>Coffee Machine</td>
+                    <td>1.2</td>
+                </tr>
+                <tr data-device="Air Conditioner" data-consumption="2">
+                    <td>Air Conditioner</td>
+                    <td>2</td>
+                </tr>
+                <tr data-device="Freezer" data-consumption="0.3">
+                    <td>Freezer</td>
+                    <td>0.3</td>
+                </tr>
+                <tr data-device="Microwave" data-consumption="1">
+                    <td>Microwave</td>
+                    <td>1</td>
+                </tr>
+                <tr data-device="Dishwasher" data-consumption="1.3">
+                    <td>Dishwasher</td>
+                    <td>1.3</td>
+                </tr>
+                <tr data-device="Water Heater" data-consumption="2">
+                    <td>Water Heater</td>
+                    <td>2</td>
+                </tr>
+                <tr data-device="Central AC" data-consumption="3.5">
+                    <td>Central AC</td>
+                    <td>3.5</td>
+                </tr>
+                <tr data-device="Toaster" data-consumption="1">
+                    <td>Toaster</td>
+                    <td>1</td>
+                </tr>
+                <tr data-device="Electric Kettle" data-consumption="2">
+                    <td>Electric Kettle</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
