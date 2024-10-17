@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
             devices.forEach((device, index) => {
                 const li = document.createElement('li');
-                li.textContent = `${device.name}: ${device.consumption} וואט`;
+                const cost = calculateCost(device).toFixed(2)
+                li.textContent = `${device.name}: ${device.consumption} KW|${device.usageTime} hours|${cost}₪`;
                 li.dataset.index = index; // שמירת אינדקס כנתון מותאם אישית באלמנט ה-li
                 li.addEventListener('click', function() {
                     removeDevice(index); // כשנלחץ, נקרא לפונקציה למחיקת המכשיר
@@ -32,11 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
         renderDevices();
         totalConsumption();
         renderChart();
+        totalCost()
     }
 
     function totalConsumption() {
         const total = devices.reduce((sum, device) => sum + device.consumption, 0);
-        document.getElementById("totalConsumption").textContent = ` ${total} וואט`;
+        document.getElementById("totalConsumption").textContent = ` ${total}KW`;
     }
 
     let chart; // משתנה גלובלי לאחסון הגרף
@@ -67,19 +69,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function calculateCost(device) {
+        const pricePerKWH = 0.5252;
+        const usageTime = device.usageTime;
+        const consumptionKWH = device.consumption;
+        return consumptionKWH * usageTime *pricePerKWH;
+    }
+
+    function totalCost() {
+        const total = devices.reduce((sum, device) => sum + calculateCost(device), 0);
+        document.getElementById("totalCost").textContent = `${total.toFixed(2)}₪`
+    }
+
     document.getElementById('deviceForm').addEventListener('submit', function(event) {
         event.preventDefault();
         const deviceName = document.getElementById('deviceName').value;
         const energyConsumption = document.getElementById('energyConsumption').value;
-        devices.push({ name: deviceName, consumption: parseInt(energyConsumption) });
+        const usageTime = document.getElementById('usageTime').value;
+        devices.push({ name: deviceName, consumption: parseInt(energyConsumption), usageTime: parseInt(usageTime)});
         localStorage.setItem('devices', JSON.stringify(devices));
         renderDevices();
         totalConsumption();
         renderChart();
+        totalCost()
         this.reset(); // לנקות את הטופס
     });
 
     renderDevices(); // הצג את המכשירים הקיימים
     totalConsumption();
     renderChart();
+    totalCost()
 });

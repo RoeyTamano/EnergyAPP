@@ -26,6 +26,11 @@ form input{
     height:8%;
     border: gray solid;
     background-color:rgb(165, 238, 214);
+    transition:0.2s;
+    &:hover{
+        background-color:#66ced3;
+        border-radius:10px;
+    }
 }
 form button{
     width:25%;
@@ -47,7 +52,7 @@ form button{
     align-items: center;
     gap: 2rem;
     margin-bottom: 20px;
-    width: 50%;
+    width: 30%;
     height:30rem;
     background: #2c7e82;
     border-radius: 10px;
@@ -55,7 +60,7 @@ form button{
 #deviceList {
     list-style-type: none;
     padding: 0;
-    width: 110%;
+    width: 100%;
     height: 96%;
     text-align: center;
     color:wheat;
@@ -78,6 +83,7 @@ ul li{
     cursor: pointer;
     &:hover{
         background-color:#49abb0;
+        font-size:large;
     }
 }
 p{
@@ -97,4 +103,31 @@ p em{
     width: 20rem;
     height: 20rem;
     margin: 0 auto;
+}
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: -10px;
+    height: -21%;
+    margin: auto;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 9px;
+    text-align: center;
+}
+th {
+    background-color: #5f8b9f;
+    font-weight: 900;
+    font-size:1.3rem;
+    color: #9ee0e3;
+}
+tr{
+    transition: 0.2s;
+    font-weight: 700;
+    color: #2c7e82;
+    &:hover{
+        background-color: #66ced3;
+        font-size:large;
+    }  
 }

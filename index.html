@@ -9,12 +9,14 @@
     <h1>EnergyApp</h1>
     <div class="content">
         <form id="deviceForm">
-            <input type="text" id="deviceName" placeholder="name" required>
-            <input type="number" id="energyConsumption" placeholder="energyConsumption" required>
+            <input type="text" id="deviceName" placeholder="Device name" required>
+            <input type="number" id="energyConsumption" placeholder="Energy Consumption (KW)" required>
+            <input type="number" id="usageTime" placeholder="Time used (hours)" required>
             <button type="submit">Add device</button>
         </form>
         <div id="graph">
-            <p>Total consumption:<em id="totalConsumption"> 0 וואט </em></p>
+            <p>Total consumption:<em id="totalConsumption"> 0 KW </em></p>
+            <p>Total cost:<em id="totalCost"> 0₪</em></p>
             <div class="canvas">
                 <canvas id="energyChart"></canvas>
             </div>
@@ -24,6 +26,89 @@
             <ul id="deviceList"></ul>
         </div>
     </div>
+    <h1>Power Consumption of Devices</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Device</th>
+                <th>Power Consumption (kWh)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>LED Bulb</td>
+                <td>0.008 - 0.01</td>
+            </tr>
+            <tr>
+                <td>Television</td>
+                <td>0.1 - 0.4</td>
+            </tr>
+            <tr>
+                <td>Refrigerator</td>
+                <td>0.1 - 0.8</td>
+            </tr>
+            <tr>
+                <td>Washing Machine</td>
+                <td>0.5 - 2</td>
+            </tr>
+            <tr>
+                <td>Dryer</td>
+                <td>1.8 - 5</td>
+            </tr>
+            <tr>
+                <td>Electric Oven</td>
+                <td>1 - 5</td>
+            </tr>
+            <tr>
+                <td>Laptop</td>
+                <td>0.015 - 0.1</td>
+            </tr>
+            <tr>
+                <td>Desktop Computer</td>
+                <td>0.1 - 0.3</td>
+            </tr>
+            <tr>
+                <td>Coffee Machine</td>
+                <td>0.8 - 1.5</td>
+            </tr>
+            <tr>
+                <td>Air Conditioner</td>
+                <td>1 - 3</td>
+            </tr>
+            <tr>
+                <td>Freezer</td>
+                <td>0.2 - 0.6</td>
+            </tr>
+            <tr>
+                <td>Microwave</td>
+                <td>0.6 - 1.2</td>
+            </tr>
+            <tr>
+                <td>Dishwasher</td>
+                <td>1.2 - 1.5</td>
+            </tr>
+            <tr>
+                <td>Oven</td>
+                <td>1 - 3</td>
+            </tr>
+            <tr>
+                <td>Water Heater</td>
+                <td>1 - 3</td>
+            </tr>
+            <tr>
+                <td>Central Air Conditioner</td>
+                <td>2 - 4</td>
+            </tr>
+            <tr>
+                <td>Toaster</td>
+                <td>0.8 - 1.5</td>
+            </tr>
+            <tr>
+                <td>Electric Kettle</td>
+                <td>1 - 3</td>
+            </tr>
+        </tbody>
+    </table>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
