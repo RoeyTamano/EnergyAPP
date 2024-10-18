@@ -18,5 +18,7 @@
 EnergyApp is a work in progress! I am actively updating, improving, and adding new features to enhance functionality and user experience. Stay tuned for more exciting updates! 🔄✨
 
 EnergyApp is ideal for anyone looking to understand and reduce their electricity consumption, providing a simple way to monitor and calculate energy costs based on real data. ⚡💸
+![image](https://github.com/user-attachments/assets/63c7b546-e966-4e2c-9eae-062fb2b63a71)
+![image](https://github.com/user-attachments/assets/c97fd4b2-8b4a-44f1-a692-daf6e9b7d743)
 
 file:///C:/Users/User/Desktop/energyapp/index.html
